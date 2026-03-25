@@ -1,0 +1,42 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_DB: cloudtask_test
+          POSTGRES_USER: cloudtask
+          POSTGRES_PASSWORD: cloudtask
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build and test
+        run: mvn clean verify
+        env:
+          DB_HOST: localhost
+          DB_NAME: cloudtask_test
+          DB_USER: cloudtask
+          DB_PASSWORD: cloudtask
+      - name: Build Docker image
+        run: docker build -t cloudtask-api:latest .
