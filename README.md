@@ -146,3 +146,18 @@ This service is designed for deployment on AWS ECS Fargate:
 **Sai Kumar Moguluri**
 - LinkedIn: [linkedin.com/in/sai-1899k](https://linkedin.com/in/sai-1899k)
 - Email: mogulurisaikumar@gmail.com
+
+
+## Screenshots
+
+### Swagger UI — All Endpoints
+![Swagger UI](docs/swagger-ui.png)
+
+### Create Task — 201 Response
+![Create Task](docs/create-task.png)
+
+### Full Response Body
+![Response 201](docs/response-201.png)
+
+### Metrics Dashboard
+![Metrics](docs/metrics.png)
