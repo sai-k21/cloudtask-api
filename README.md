@@ -97,5 +97,4 @@ Designed for AWS ECS Fargate:
 ## Author
 
 **Sai Kumar Moguluri**
-LinkedIn: [linkedin.com/in/sai-1899k](https://linkedin.com/in/sai-1899k)
 GitHub: [github.com/sai-k21](https://github.com/sai-k21)
